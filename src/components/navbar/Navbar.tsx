@@ -21,15 +21,15 @@ const Navbar: React.FC = () => {
           aria-label="Menu principal"
           >
             <Tab 
-            style={{color: value === 0 ? '#FBA403' : 'inherit'}} 
+            style={{color: value === 0 ? '#FBA403' : '#fff'}} 
             label="Home" 
             value={0} />
             <Tab 
-            style={{color: value === 1 ? '#FBA403' : 'inherit'}} 
+            style={{color: value === 1 ? '#FBA403' : '#fff'}} 
             label="Getting a Taxi"
             value={1} />
             <Tab 
-            style={{color: value === 2 ? '#FBA403' : 'inherit'}} 
+            style={{color: value === 2 ? '#FBA403' : '#fff'}} 
             label="Mobile App"
             value={2} /> 
             <Tab 
