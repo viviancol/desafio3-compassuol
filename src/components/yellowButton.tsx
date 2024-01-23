@@ -1,7 +1,11 @@
 import React from 'react'
 import { Button } from "@mui/material"
 
-const YellowButton: React.FC = () => {
+interface YellowButtonProps{
+  children: React.ReactNode;
+}
+
+const YellowButton: React.FC <YellowButtonProps> = ({children}) => {
   return (
     <Button 
     sx={{
@@ -9,7 +13,7 @@ const YellowButton: React.FC = () => {
         bgcolor:'#FBA403 !important'
         
     }}
-    variant="contained">FIND A DRIVE</Button>
+    variant="contained">{children}</Button>
   )
 }
 
