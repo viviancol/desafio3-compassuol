@@ -6,7 +6,6 @@ const Footer: React.FC = () => {
     <Container 
         component="footer" 
         sx={{  
-            position:'fixed',
             marginTop:'4rem', 
             bgcolor:'#242424', 
             color:'#fff', 
