@@ -1,4 +1,4 @@
-import { Box, Stack, TextField, Typography } from "@mui/material"
+import { Box, Stack, TextField, Typography, Button } from "@mui/material"
 import React from "react"
 
 const BookingForm: React.FC = () => {
@@ -22,7 +22,8 @@ const BookingForm: React.FC = () => {
                     <Typography 
                     sx={{
                         fontSize:'40px',
-                    }} >Book with <span style={{color:"#FBA403"}}>myRIDE</span> now!</Typography>
+                    }} >Book with 
+                    <span style={{color:"#FBA403"}}>myRIDE</span> now!</Typography>
                 </Box>
 
                 <Box sx={{bgcolor:'#2c2c2c', padding:'30px 33px'}} >
@@ -35,16 +36,24 @@ const BookingForm: React.FC = () => {
                         <TextField 
                         sx={{
                             width:'100%',
-                            textColor:'#FBA403' }} 
+                            textColor:'#FBA403' 
+                        }} 
                         label='Your Pickup' variant='outlined' />
 
                         <TextField 
                         sx={{
                             width:'100%',
-                            textColor:'#FBA403' }} 
+                            textColor:'#FBA403' 
+                        }} 
                         label='Your Destination' variant='outlined' />
 
-
+                        <Button 
+                        sx={{
+                            width:'100%',
+                            bgcolor:'#FBA403 !important'
+                            
+                        }}
+                        variant="contained">FIND A DRIVE</Button>
                     </Box>
                 </Box>
             </Box>
