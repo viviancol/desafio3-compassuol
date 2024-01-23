@@ -10,15 +10,15 @@ const Navbar: React.FC = () => {
 
   return (
     <AppBar>
-      <Toolbar sx={{bgcolor:'#242424', display:'flex', justifyContent:'space-between'}}>
+      <Toolbar sx={{width:'100%', bgcolor:'#242424', display:'flex', justifyContent:'space-between'}}>
         <Box>
         <img src="../public/icon-ride.png" alt="Logo do Site" />
         </Box>
-        <Box sx={{indicatorColor:'#FBA403'}}>
+        <Box>
           <Tabs 
           value={value} 
           onChange={handleChange}
-          textColor='primary'
+          aria-label="Menu principal"
           >
             <Tab 
             style={{color: value === 0 ? '#FBA403' : 'inherit'}} 
