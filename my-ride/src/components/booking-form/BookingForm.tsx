@@ -3,7 +3,7 @@ import React from "react"
 
 const BookingForm: React.FC = () => {
   return (
-    <Stack sx= {{marginTop:'74px', bgcolor:'#242424'}} >
+    <Stack sx= {{marginTop:'64px', bgcolor:'#242424'}} >
         <Box sx={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', my:'74px', mx:'89px'}}>
             <Box sx={{width:'50%'}} >
                 <img style={{
@@ -13,7 +13,7 @@ const BookingForm: React.FC = () => {
                 alt="Imagem formulário de inscrição" />
             </Box>
 
-            <Box sx={{width:'50%', ml:'42px'}}>
+            <Box sx={{width:'50%', ml:'42px', color:'#fff'}}>
                 <Box>
                     <Typography 
                     sx={{
@@ -22,7 +22,7 @@ const BookingForm: React.FC = () => {
                     <Typography 
                     sx={{
                         fontSize:'40px',
-                    }} >Book with myRIDE now!</Typography>
+                    }} >Book with <span style={{color:"#FBA403"}}>myRIDE</span> now!</Typography>
                 </Box>
 
                 <Box sx={{bgcolor:'#2c2c2c', padding:'30px 33px'}} >
