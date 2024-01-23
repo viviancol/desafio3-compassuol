@@ -1,5 +1,6 @@
-import { Box, Stack, TextField, Typography, Button } from "@mui/material"
+import { Box, Stack, TextField, Typography, } from "@mui/material"
 import React from "react"
+import YellowButton from "../yellowButton"
 
 const BookingForm: React.FC = () => {
   return (
@@ -29,31 +30,28 @@ const BookingForm: React.FC = () => {
                 <Box sx={{bgcolor:'#2c2c2c', padding:'30px 33px'}} >
                     <Box>
                         <Typography 
-                        sx={{
-                            fontSize:'24px'
+                        style={{
+                            fontSize:'24px',
+                            color:'#ffff',
+                            marginBottom:'20px'
                         }} >Find a ride now</Typography>
+                        <Box>
+                            <TextField 
+                            style={{
+                                width:'100%',
+                                marginBottom:'10px'
+                            }} 
+                            label='Your Pickup' placeholder="Current Location" variant='outlined' />
 
-                        <TextField 
-                        sx={{
-                            width:'100%',
-                            textColor:'#FBA403' 
-                        }} 
-                        label='Your Pickup' variant='outlined' />
+                            <TextField 
+                            style={{
+                                width:'100%',
+                                marginBottom:'10px' 
+                            }} 
+                            label='Your Destination' placeholder="Your Destination" variant='outlined' />
+                        </Box>
 
-                        <TextField 
-                        sx={{
-                            width:'100%',
-                            textColor:'#FBA403' 
-                        }} 
-                        label='Your Destination' variant='outlined' />
-
-                        <Button 
-                        sx={{
-                            width:'100%',
-                            bgcolor:'#FBA403 !important'
-                            
-                        }}
-                        variant="contained">FIND A DRIVE</Button>
+                        <YellowButton>FIND A DRIVE</YellowButton>
                     </Box>
                 </Box>
             </Box>
