@@ -5,8 +5,7 @@ const Footer: React.FC = () => {
   return (
     <Container 
         component="footer" 
-        sx={{  
-            marginTop:'4rem', 
+        sx={{   
             bgcolor:'#242424', 
             color:'#fff', 
             padding:'40px 80px',
