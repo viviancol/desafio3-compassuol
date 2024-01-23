@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from "@mui/material"
 
-const button: React.FC = () => {
+const YellowButton: React.FC = () => {
   return (
     <Button 
     sx={{
@@ -13,4 +13,4 @@ const button: React.FC = () => {
   )
 }
 
-export default button
+export default YellowButton
