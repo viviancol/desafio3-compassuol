@@ -1,16 +1,54 @@
-import { Box, Container } from "@mui/material"
+import { Box, Stack, TextField, Typography } from "@mui/material"
 import React from "react"
 
 const BookingForm: React.FC = () => {
   return (
-    <Container component="footer">
-        <Box>
-            <Box>
-                <img src="../public/bookingFor-image.png" 
+    <Stack marginTop='74px'>
+        <Box sx={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', my:'74px', mx:'89px'}}>
+            <Box sx={{width:'50%'}} >
+                <img style={{
+                    width:'100%',
+                }}
+                src="../public/bookingFor-image.png" 
                 alt="Imagem formulário de inscrição" />
             </Box>
+
+            <Box sx={{width:'50%', ml:'42px'}}>
+                <Box>
+                    <Typography 
+                    sx={{
+                        fontSize:'26px'
+                    }} >NEED A RIDE?</Typography>
+                    <Typography 
+                    sx={{
+                        fontSize:'40px',
+                    }} >Book with myRIDE now!</Typography>
+                </Box>
+
+                <Box sx={{bgcolor:'#242424', padding:'30px 33px'}} >
+                    <Box>
+                        <Typography 
+                        sx={{
+                            fontSize:'24px'
+                        }} >Find a ride now</Typography>
+
+                        <TextField 
+                        sx={{
+                            width:'100%',
+                            textColor:'#FBA403' }} 
+                        label='Your Pickup' variant='outlined' />
+
+                        <TextField 
+                        sx={{
+                            width:'100%',
+                            textColor:'#FBA403' }} 
+                        label='Your Destination' variant='outlined' />
+                    </Box>
+                </Box>
+            </Box>
+    
         </Box>
-    </Container>
+    </Stack>
   )
 }
 
