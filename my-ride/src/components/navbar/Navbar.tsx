@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
   return (
     <AppBar>
-      <Toolbar sx={{width:'100%', bgcolor:'#242424', display:'flex', justifyContent:'space-between'}}>
+      <Toolbar sx={{bgcolor:'#242424', display:'flex', justifyContent:'space-between'}}>
         <Box>
         <img src="../public/icon-ride.png" alt="Logo do Site" />
         </Box>
