@@ -1,4 +1,5 @@
 import './App.css'
+import BookingForm from './components/booking-form/BookingForm';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar'
 
@@ -8,7 +9,9 @@ function App() {
       <header>
         <Navbar />
       </header>
-      <section></section>
+      <section>
+        <BookingForm />
+      </section>
       <footer>
         <Footer />
       </footer>
