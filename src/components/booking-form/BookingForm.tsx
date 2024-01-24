@@ -1,6 +1,6 @@
 import { Box, Stack, TextField, Typography, } from "@mui/material"
 import React from "react"
-import YellowButton from "../yellowButton"
+import YellowButton from "./YellowButton.tsx"
 
 const BookingForm: React.FC = () => {
   return (
