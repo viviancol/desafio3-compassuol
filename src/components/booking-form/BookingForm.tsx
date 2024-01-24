@@ -34,22 +34,34 @@ const BookingForm: React.FC = () => {
                         style={{
                             fontSize:'24px',
                             color:'#ffff',
-                            marginBottom:'20px'
+                            marginBottom:'20px',
                         }} >Find a ride now</Typography>
                         <Box>
-                            <TextField 
+                            <TextField
                             style={{
                                 width:'100%',
                                 marginBottom:'10px'
                             }} 
-                            label='Your Pickup' placeholder="Current Location" variant='outlined' />
+                            label='Your Pickup' 
+                            placeholder="Current Location" 
+                            variant='outlined' 
+                            inputProps={{
+                                style:{ color:'#FBA403' }
+                            }}
+                            />
 
                             <TextField 
                             style={{
                                 width:'100%',
                                 marginBottom:'10px' 
                             }} 
-                            label='Your Destination' placeholder="Your Destination" variant='outlined' />
+                            label='Your Destination' 
+                            placeholder="Your Destination" 
+                            variant='outlined' 
+                            inputProps={{
+                                style:{ color:'#FBA403' }
+                            }}
+                            />
                         </Box>
 
                         <YellowButton>FIND A DRIVE</YellowButton>
