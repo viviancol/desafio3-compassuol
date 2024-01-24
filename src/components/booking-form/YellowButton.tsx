@@ -10,7 +10,7 @@ const YellowButton: React.FC <YellowButtonProps> = ({children}) => {
     <Button 
     sx={{
         width:'100%',
-        bgcolor:'#FBA403 !important'
+        bgcolor:'#FBA403'
         
     }}
     variant="contained">{children}</Button>
