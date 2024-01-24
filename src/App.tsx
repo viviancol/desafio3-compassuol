@@ -5,6 +5,7 @@ import BookingForm from './components/booking-form/BookingForm';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar'
 import PainelRide from './components/painel-ride/PainelRide';
+import Form from './components/form/Form';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <section>
         <BookingForm />
         <PainelRide />
+        <Form />
       </section>
       <footer>
         <Footer />
