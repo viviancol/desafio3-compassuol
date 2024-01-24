@@ -24,7 +24,8 @@ const BookingForm: React.FC = () => {
                     sx={{
                         fontSize:'40px',
                     }} >Book with 
-                    <span style={{color:"#FBA403"}}>myRIDE</span> now!</Typography>
+                    <span style={{color:"#FBA403"}} > <i>my</i></span>
+                    <span style={{color:"#FBA403"}}>RIDE</span> now!</Typography>
                 </Box>
 
                 <Box sx={{bgcolor:'#2c2c2c', padding:'30px 33px'}} >
