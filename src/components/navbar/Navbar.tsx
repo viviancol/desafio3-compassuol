@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Tabs, Tab, Box } from '@mui/material';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const Navbar: React.FC = () => {
     const [ value, setValue ] = useState(0);
@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
     }
 
   return (
-    <AppBar>
+    <AppBar data-testid="NavBar">
       <Toolbar sx={{bgcolor:'#242424', display:'flex', justifyContent:'space-between'}}>
         <Box>
         <img src="../public/icon-ride.png" alt="Logo do Site" />
@@ -50,5 +50,3 @@ const Navbar: React.FC = () => {
 }
 
 export default Navbar
-
-{/* <Tabs value={value} onChange={(_e, value) => setValue(value)}> */}
