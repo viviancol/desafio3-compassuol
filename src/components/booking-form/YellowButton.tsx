@@ -9,6 +9,7 @@ const YellowButton: React.FC <YellowButtonProps> = ({children}) => {
   return (
     <Button 
     sx={{
+        width:'100%',
         bgcolor:'#FBA403 !important'
         
     }}
