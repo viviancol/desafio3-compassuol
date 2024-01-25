@@ -1,11 +1,11 @@
 import './App.css'
-import { ThemeProvider } from '@emotion/react';
-import { StandardTheme } from './themes/StandardTheme';
-import BookingForm from './components/booking-form/BookingForm';
-import Footer from './components/footer/Footer';
+import { ThemeProvider } from '@emotion/react'
+import { StandardTheme } from './themes/StandardTheme'
+import BookingForm from './components/booking-form/BookingForm'
+import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/Navbar'
-import PainelRide from './components/painel-ride/PainelRide';
-import Form from './components/form/Form';
+import PainelRide from './components/painel-ride/PainelRide'
+import Forms from './components/form/Forms'
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <section>
         <BookingForm />
         <PainelRide />
-        <Form />
+        <Forms />
       </section>
       <footer>
         <Footer />
