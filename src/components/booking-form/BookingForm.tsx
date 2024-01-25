@@ -1,4 +1,4 @@
-import { Box, Stack, TextField, Typography, } from "@mui/material"
+import { Box, Stack, TextField, Typography } from "@mui/material"
 import React from "react"
 import YellowButton from "./YellowButton.tsx"
 
@@ -46,7 +46,7 @@ const BookingForm: React.FC = () => {
                             placeholder="Current Location" 
                             variant='outlined' 
                             inputProps={{
-                                style:{ color:'#FBA403' }
+                                style:{ color:'#FBA403'}
                             }}
                             />
 
