@@ -1,23 +1,30 @@
 import React from 'react'
 import { Box, Stack, Typography, TextField, FormControlLabel, Switch, Button, FormControl } from '@mui/material'
-import { Controller, useForm } from 'react-hook-form'
+import { Controller, useForm, SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { validationFormSchema } from './validation'
 
 
 interface FormData {
   fullName: string;
+  emailAddress: string;
 }
 
 const Form: React.FC = () => {
 
-  const { control, handleSubmit, formState } = useForm<FormData>({
+  const { control, handleSubmit, formState: { isSubmitting, isValid, errors, isSubmitSuccessful } } = useForm<FormData>({
     resolver: zodResolver(validationFormSchema),
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    try {
+      // Recolhendo os dados submetidos
+      console.log(data);
+    } catch (error) {
+      // tratar os erros caso eles existam
+    }
   };
+
 
   
   return (
@@ -55,8 +62,7 @@ const Form: React.FC = () => {
           <Controller
             name="fullName"
             control={control}
-            render={({ field, fieldState }) => (
-            <>
+            render={({ field }) => (
               <TextField
                 {...field}
                 style={{
@@ -69,25 +75,32 @@ const Form: React.FC = () => {
                 inputProps={{
                   style: { color: "#FBA403" },
                 }}
+                helperText={errors.fullName? "testando pra ver se funciona" :null}
               />
-                {fieldState.error && (
-                  <p style={{ color: "error" }}>{fieldState.error.message}</p>
-                )}
-              </>
             )}
           />
 
-          <TextField
-            style={{
-              width: "100%",
-              marginBottom: "10px",
-            }}
-            label="Email Address"
-            placeholder="Email Address"
-            variant="outlined"
-            inputProps={{
-              style: { color: "#FBA403" },
-            }}
+          <Controller
+            name="emailAddress"
+            control={control}
+            render={({ field }) => (
+            <>
+              <TextField
+              {...field}
+                style={{
+                  width: "100%",
+                  marginBottom: "10px",
+                }}
+                label="Email Address"
+                placeholder="Email Address"
+                variant="outlined"
+                inputProps={{
+                  style: { color: "#FBA403" },
+                }}
+                helperText={errors.emailAddress?.message}
+              />
+              </>
+            )}
           />
 
           <TextField
@@ -101,12 +114,7 @@ const Form: React.FC = () => {
             placeholder="Country"
             defaultValue=""
             // helperText="Please select your country"
-          >
-            {/* {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))} */}
+            >
           </TextField>
 
           <TextField
@@ -120,12 +128,7 @@ const Form: React.FC = () => {
             placeholder="City"
             defaultValue=""
             // helperText="Please select your city"
-          >
-            {/* {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))} */}
+            >
           </TextField>
 
           <TextField
@@ -177,7 +180,7 @@ const Form: React.FC = () => {
           </Box>
           <Button 
           type="submit" 
-          disabled={formState.isSubmitting}
+          disabled={isSubmitting || (isSubmitSuccessful && !isValid)}
           sx={{mt:'1rem', width:'20%'}}
           variant="contained">Submit</Button>
         </Box>
