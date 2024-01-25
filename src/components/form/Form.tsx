@@ -1,37 +1,38 @@
 import React from 'react'
-import { Box, Stack, Typography, TextField, FormControlLabel, Switch } from '@mui/material'
+import { Box, Stack, Typography, TextField, FormControlLabel, Switch, Button, FormControl } from '@mui/material'
 
 
 const Form: React.FC = () => {
   return (
-    <Stack>
-      <Box>
-        <img
-          src="../public/Popup image.png"
-          alt="Imagem formulario registro de carro"
-        />
+    <Stack sx={{bgcolor:'#242424', display:'flex', flexDirection:'column', padding:'2rem'}}>
+      <FormControl sx={{bgcolor:'#282828', my:'54px', mx:'20px', padding:'2rem'}}>
+        <Box sx={{display:'flex', flexDirection:'row', alignItems:'start'}}>
+            <img
+              src="../public/Popup image.png"
+              alt="Imagem formulario registro de carro"
+            />
 
-        <Box>
-          <Typography
-            sx={{
-              fontSize: "27px",
-              color: "#FBA403",
-            }}
-          >
-            Drive with MyRide
-          </Typography>
+          <Box>
+            <Typography
+              sx={{
+                fontSize: "27px",
+                color: "#FBA403",
+              }}
+            >
+              Drive with MyRide
+            </Typography>
 
-          <Typography
-            sx={{
-              fontSize: "16px",
-              color: "#FFF",
-            }}
-          >
-            Register as a driver using the form below. Our team will assess and
-            get back to you within 48 hours.
-          </Typography>
+            <Typography
+              sx={{
+                fontSize: "16px",
+                color: "#FFF",
+              }}
+            >
+              Register as a driver using the form below. Our team will assess and
+              get back to you within 48 hours.
+            </Typography>
+          </Box>
         </Box>
-
         <Box>
           <TextField
             style={{
@@ -51,8 +52,8 @@ const Form: React.FC = () => {
               width: "100%",
               marginBottom: "10px",
             }}
-            label="Full Name"
-            placeholder="Full Name"
+            label="Email Address"
+            placeholder="Email Address"
             variant="outlined"
             inputProps={{
               style: { color: "#FBA403" },
@@ -68,8 +69,8 @@ const Form: React.FC = () => {
             select
             label="Country"
             placeholder="Country"
-            defaultValue="EUR"
-            helperText="Please select your country"
+            defaultValue=""
+            // helperText="Please select your country"
           >
             {/* {currencies.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -87,8 +88,8 @@ const Form: React.FC = () => {
             select
             label="City"
             placeholder="City"
-            defaultValue="EUR"
-            helperText="Please select your city"
+            defaultValue=""
+            // helperText="Please select your city"
           >
             {/* {currencies.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -110,7 +111,7 @@ const Form: React.FC = () => {
             }}
           />
 
-          <Box>
+          <Box sx={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
             <Typography
               sx={{
                 fontSize: "16px",
@@ -121,27 +122,33 @@ const Form: React.FC = () => {
             </Typography>
             <FormControlLabel
               control={<Switch defaultChecked />}
-              label="Label"
+              label=""
             />
           </Box>
           <Typography
             sx={{
               fontSize: "20px",
               color: "#FBA403",
+              my:'1rem'
             }}
             >
             Select your car type
           </Typography>
 
-          <div id="radio-button">
-            <img src="../public/sedan.png" alt="image sedan car" />
-            <img src="../public/suv.png" alt="image suv car" />
-            <img src="../public/semiluxury.png" alt="image semiluxury car" />
-            <img src="../public/luxury.png" alt="image luxury car" />
-          </div>
-
+          <Box sx={{display:'flex', flexDirection:'row', justifyContent:'start'}}>
+            <img style={{marginRight:'1rem'}} 
+            src="../public/sedan.png" alt="image sedan car" />
+            <img style={{marginRight:'1rem'}} 
+            src="../public/suv.png" alt="image suv car" />
+            <img style={{marginRight:'1rem'}} 
+            src="../public/semiluxury.png" alt="image semiluxury car" />
+            <img style={{marginRight:'1rem'}} 
+            src="../public/luxury.png" alt="image luxury car" />
+          </Box>
+          <Button sx={{mt:'1rem', width:'20%'}}
+          variant="contained">Submit</Button>
         </Box>
-      </Box>
+      </FormControl>
     </Stack>
   );
 }
