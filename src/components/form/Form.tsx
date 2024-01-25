@@ -1,10 +1,28 @@
 import React from 'react'
 import { Box, Stack, Typography, TextField, FormControlLabel, Switch, Button, FormControl } from '@mui/material'
+import { Controller, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { validationFormSchema } from './validation'
 
+
+interface FormData {
+  fullName: string;
+}
 
 const Form: React.FC = () => {
+
+  const { control, handleSubmit, formState } = useForm<FormData>({
+    resolver: zodResolver(validationFormSchema),
+  });
+
+  const onSubmit = (data: FormData) => {
+    console.log(data);
+  };
+
+  
   return (
-    <Stack sx={{bgcolor:'#242424', display:'flex', flexDirection:'column', padding:'2rem'}}>
+    <Stack onSubmit={handleSubmit(onSubmit)}
+      sx={{bgcolor:'#242424', display:'flex', flexDirection:'column', padding:'2rem'}}>
       <FormControl sx={{bgcolor:'#282828', my:'54px', mx:'20px', padding:'2rem'}}>
         <Box sx={{display:'flex', flexDirection:'row', alignItems:'start'}}>
             <img
@@ -34,17 +52,29 @@ const Form: React.FC = () => {
           </Box>
         </Box>
         <Box>
-          <TextField
-            style={{
-              width: "100%",
-              marginBottom: "10px",
-            }}
-            label="Full Name"
-            placeholder="Full Name"
-            variant="outlined"
-            inputProps={{
-              style: { color: "#FBA403" },
-            }}
+          <Controller
+            name="fullName"
+            control={control}
+            render={({ field, fieldState }) => (
+            <>
+              <TextField
+                {...field}
+                style={{
+                  width: "100%",
+                  marginBottom: "10px",
+                }}
+                label="Full Name"
+                placeholder="Full Name"
+                variant="outlined"
+                inputProps={{
+                  style: { color: "#FBA403" },
+                }}
+              />
+                {fieldState.error && (
+                  <p style={{ color: "error" }}>{fieldState.error.message}</p>
+                )}
+              </>
+            )}
           />
 
           <TextField
@@ -145,7 +175,10 @@ const Form: React.FC = () => {
             <img style={{marginRight:'1rem'}} 
             src="../public/luxury.png" alt="image luxury car" />
           </Box>
-          <Button sx={{mt:'1rem', width:'20%'}}
+          <Button 
+          type="submit" 
+          disabled={formState.isSubmitting}
+          sx={{mt:'1rem', width:'20%'}}
           variant="contained">Submit</Button>
         </Box>
       </FormControl>
