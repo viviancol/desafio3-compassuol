@@ -6,9 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import Select from './Select'
 import countriesAndCities from './countries-and-cities.json'
 
-console.log(countriesAndCities)
-
-const validationFormSchema = z.object({
+const validationFormSchema = z.object({ //validação do zod
     fullName: z
     .string()
     .refine(data => {
@@ -42,11 +40,12 @@ type ValidationFormsData = z.infer<typeof validationFormSchema>
 
 export function Forms () {
     const [output, setOutput] = useState('');
+
     const [driveMyOwnCar, setDriveMyOwnCar] = useState(true); // switch true por padrão
     const [hoveredCar, setHoveredCar] = useState(''); // alterar imagem ao passar mouse
 
     const { register, watch, handleSubmit, control, formState: {errors} } = useForm<ValidationFormsData>({
-        resolver: zodResolver(validationFormSchema)
+        resolver: zodResolver(validationFormSchema) //validação do zod
     })
 
     const [citiesOptions, setCitiesOptions] = useState<{label:string, value:string}[]>([])
@@ -56,17 +55,15 @@ export function Forms () {
         setDriveMyOwnCar(!driveMyOwnCar);
     };
     
-    const handleCarMouseOver = (carType: string) => {
-        // Atualizar o estado quando o mouse estiver sobre a imagem
+    const handleCarMouseOver = (carType: string) => { // Atualizar o estado quando o mouse estiver sobre a imagem
         setHoveredCar(carType);
       };
     
-      const handleCarMouseLeave = () => {
-        // Resetar o estado quando o mouse deixar a imagem
+      const handleCarMouseLeave = () => { // Resetar o estado quando o mouse deixar a imagem
         setHoveredCar('');
       };
  
-     const handleSearchCity =() => {
+     const handleSearchCity =() => { //requisição do select country e city
          const normalizeJson = Object.entries(countriesAndCities).map(([country, valor]) => ({
              country,
              ...valor,
@@ -83,16 +80,16 @@ export function Forms () {
          setCitiesOptions(formatedCity);
     }  
 
-    useEffect(( ) => {
+    useEffect(( ) => { //effect errors
         console.log(errors)
     }, [errors])
 
-    useEffect(() => {
+    useEffect(() => { //effect do country and city
         if (!watch().country) return
         handleSearchCity()
     }, [watch().country] )
 
-    function createUser(data: any) {
+    function createUser(data: any) { //metodo para os dados
         console.log(data)
         setOutput(JSON.stringify(data, null, 2))
     }
@@ -100,7 +97,7 @@ export function Forms () {
     return (
         <Stack 
             sx={{bgcolor:'#242424', display:'flex', flexDirection:'column', padding:'2rem'}}>
-            <form onSubmit={handleSubmit(createUser)} 
+            <form onSubmit={handleSubmit(createUser)} //onsubmit abraçando o form
                 style={{backgroundColor:'#282828', display:'flex', flexDirection:'column', marginRight:'20px', marginLeft:'20px', padding:'2rem'}} >
                 <Box sx={{display:'flex', flexDirection:'row', alignItems:'start', mb:'2rem'}}>
                     <img
@@ -293,7 +290,3 @@ export function Forms () {
 }
 
 export default Forms
-
-// function setHoveredCar(carType: string) {
-//     throw new Error('Function not implemented.')
-// }
