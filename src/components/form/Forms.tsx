@@ -97,7 +97,7 @@ export function Forms () {
 
     async function createUser(data: any) {
         try {
-          const response = await fetch('./data.json', {
+          const response = await fetch('src/data/db.json', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
