@@ -18,4 +18,11 @@ describe ('Navbar component', () => {
 
         expect(screen.getByText('Getting a Taxi')).toHaveStyle({color:'#FBA403'});
     });
+
+    it('displays notification bell and user image', () => {
+        render (<Navbar/>);
+
+        expect(screen.getByAltText('Notification Alert')).toBeInTheDocument();
+        expect(screen.getByAltText('User Image')).toBeInTheDocument();
+    });
 })
