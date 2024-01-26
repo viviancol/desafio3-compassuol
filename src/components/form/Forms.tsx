@@ -1,6 +1,6 @@
 import { Box, Stack, Typography, TextField, FormControlLabel, Switch, Button } from '@mui/material'
 import { useForm, Controller } from 'react-hook-form'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Select from './Select'
@@ -247,7 +247,7 @@ export function Forms () {
                             control={control} 
                             name='city'  
                             render={({ field, fieldState: { error } }) => (
-                                <div style={{ opacity: citiesOptions.length ? 1 : 0.5, 
+                                <div style={{ opacity: citiesOptions.length ? 1 : 1, 
                                 pointerEvents: citiesOptions.length ? 'auto' : 'none' }}>
                             <Select
                             {...field}
@@ -290,7 +290,9 @@ export function Forms () {
                         <FormControlLabel
                             control={<Switch
                             checked={driveMyOwnCar}
-                            onChange={handleSwitchChange} />} label={undefined}
+                            onChange={handleSwitchChange} />} 
+                            label=""
+                            aria-label='Switch escolher tipo de carro'
                         />
                     </Box>
                     {driveMyOwnCar && (

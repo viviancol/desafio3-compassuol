@@ -4,25 +4,29 @@ import React from 'react'
 
 describe ('Navbar component', () => {
     it('renders navbar components correctly', () => {
-        render (<Navbar/>);
+        render(<Navbar/>);
 
         expect(screen.getByAltText('Logo do Site')).toBeInTheDocument()
         expect(screen.getByLabelText('Menu principal')).toBeInTheDocument()
-        expect(screen.getByText('Getting a Taxi')).toBeInTheDocument()
+
+        expect(screen.getByText('Home')).toBeInTheDocument();
+        expect(screen.getByText('Getting a Taxi')).toBeInTheDocument();
+        expect(screen.getByText('Mobile App')).toBeInTheDocument();
+        expect(screen.getByText('Contact Us')).toBeInTheDocument();
+
     });
     
     it('changes active tab on click', () => {
-        render (<Navbar/>);
+        render(<Navbar/>);
 
         fireEvent.click(screen.getByText('Getting a Taxi'));
-
         expect(screen.getByText('Getting a Taxi')).toHaveStyle({color:'#FBA403'});
     });
 
     it('displays notification bell and user image', () => {
-        render (<Navbar/>);
+        render(<Navbar/>);
 
-        expect(screen.getByAltText('Notification Alert')).toBeInTheDocument();
-        expect(screen.getByAltText('User Image')).toBeInTheDocument();
+        expect(screen.getByAltText('Alerta de Notificação')).toBeInTheDocument();
+        expect(screen.getByAltText('Imagem do Usuário')).toBeInTheDocument();
     });
 })
