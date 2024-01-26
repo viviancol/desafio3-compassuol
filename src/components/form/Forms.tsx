@@ -1,10 +1,11 @@
-import { Box, Stack, Typography, TextField, FormControlLabel, Switch, Button } from '@mui/material'
+import { Box, Stack, Typography, TextField, FormControlLabel, Switch, Button, Dialog, DialogContent } from '@mui/material'
 import { useForm, Controller } from 'react-hook-form'
 import React, { useEffect, useState } from 'react'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Select from './Select'
 import countriesAndCities from './countries-and-cities.json'
+import SuccessScreen from './SucessScreen'
 
 const validationFormSchema = z.object({ //validação do zod
     fullName: z
@@ -43,6 +44,9 @@ export function Forms () {
 
     const [driveMyOwnCar, setDriveMyOwnCar] = useState(true); // switch true por padrão
     const [hoveredCar, setHoveredCar] = useState(''); // alterar imagem ao passar mouse
+
+    const [success, setSuccess] = useState(false);
+    const [openDialog, setOpenDialog] = useState(false);
 
     const { register, watch, handleSubmit, reset,  control, formState: {errors} } = useForm<ValidationFormsData>({
         resolver: zodResolver(validationFormSchema) //validação do zod
@@ -114,15 +118,29 @@ export function Forms () {
           console.log('Erro ao enviar o formulário. Por favor, tente novamente.');
         }
     };
+
+    const handleNewCarSubmit = () => {
+        setOpenDialog(false);
+    };
     
- 
 
     return (
         <Stack 
             sx={{bgcolor:'#242424', display:'flex', flexDirection:'column', padding:'2rem'}}>
+            {success && (
+            <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
+                <DialogContent>
+                <SuccessScreen onNewCarSubmit={handleNewCarSubmit} />
+                </DialogContent>
+            </Dialog>
+            )}
+
             <form onSubmit={handleSubmit((data) => {
-                createUser(data); reset();
-            })} //onsubmit abraçando o form
+                createUser(data);
+                reset();
+                setSuccess(true);
+                setOpenDialog(true);
+                })}
                 style={{backgroundColor:'#282828', display:'flex', flexDirection:'column', marginRight:'20px', marginLeft:'20px', padding:'2rem'}} >
                 <Box sx={{display:'flex', flexDirection:'row', alignItems:'start', mb:'2rem'}}>
                     <img
