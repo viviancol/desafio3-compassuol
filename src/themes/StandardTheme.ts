@@ -33,5 +33,12 @@ export const StandardTheme = createTheme({
         },
       },
     },
-  },  
+  },
+  MuiSvgIcon: { 
+    styleOverrides: {
+      root: {
+        color: '#ffffff',
+      },
+    },
+  },
 });
