@@ -13,25 +13,25 @@ const validationFormSchema = z.object({ //validação do zod
     .refine(data => {
         const names = data.split(" ");
         return names.length >= 2 && names.every(name => name.length > 0);}, {
-        message: 'Digite um Nome e ao menos um Sobrenome',
+        message: 'Invalid name',
     }),
 
     emailAddress: z
     .string()
     .email({
-        message: 'Digite um endereço de email válido',
+        message: 'Invalid email',
     }),
 
     country: z
     .string()
-    .min(1, 'mensagem do erro'),
+    .min(1, 'Invalid country'),
 
     city: z
     .string()
-    .min(1, 'mensagem de erro'),
+    .min(1, 'Invalid city'),
     
     referralCode: z.string().refine((value) => /^([A-Z]{3}-[0-9]{3})$/.test(value), {
-        message: 'O código de indicação deve seguir o formato AAA-001',
+        message: 'Invalid code',
     }),
     
 });
