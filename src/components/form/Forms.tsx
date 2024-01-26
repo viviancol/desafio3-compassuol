@@ -43,9 +43,8 @@ export function Forms () {
 
     const [driveMyOwnCar, setDriveMyOwnCar] = useState(true); // switch true por padrão
     const [hoveredCar, setHoveredCar] = useState(''); // alterar imagem ao passar mouse
-    const [submitSuccess, setSubmitSuccess] = useState(false); //metodo post
 
-    const { register, watch, handleSubmit, reset,  control, formState: {errors} } = useForm<ValidationFormsData>({
+    const { register, watch, handleSubmit,  control, formState: {errors} } = useForm<ValidationFormsData>({
         resolver: zodResolver(validationFormSchema) //validação do zod
     })
 
@@ -90,72 +89,10 @@ export function Forms () {
         handleSearchCity()
     }, [watch().country] )
 
-    // function createUser(data: any) {
-    //     console.log(data)
-    //     setOutput(JSON.stringify(data, null, 2))
-    // } //metodo anterior mostrado abaixo do formulario
-
-    async function createUser(data: any) {
-        try {
-          const response = await fetch('src/data/db.json', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-        });
-        if (response.ok) {
-            setSubmitSuccess(true);
-            setOutput(JSON.stringify(data, null, 2)); // Adiciona para exibição na tela de sucesso
-          } else {
-            setOutput('Erro ao enviar o formulário. Por favor, tente novamente.');
-          }
-        } catch (error) {
-          console.error('Erro ao enviar o formulário:', error);
-          setOutput('Erro ao enviar o formulário. Por favor, tente novamente.');
-        }
-      }
-      if (submitSuccess) {
-        return (
-          <Stack
-            sx={{
-              bgcolor: '#242424',
-              display: 'flex',
-              flexDirection: 'column',
-              padding: '2rem',
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: '27px',
-                color: '#FBA403',
-              }}
-            >
-              Welcome {watch().fullName.split(' ')[0]}
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: '16px',
-                color: '#FFF',
-              }}
-            >
-              **Mostrar dados aqui** <pre>{output}</pre>
-            </Typography>
-            {/* Adicione as informações do usuário conforme necessário */}
-            <Button
-              onClick={() => {
-                setSubmitSuccess(false); // Redefine o estado para permitir uma nova submissão
-                reset(); // Limpa os dados do formulário usando a função reset do react-hook-form
-              }}
-              sx={{ mt: '1rem', width: '20%' }}
-              variant="contained"
-            >
-              SUBMIT A NEW CAR
-            </Button>
-          </Stack>
-        );
-    }
-    
+    function createUser(data: any) {
+        console.log(data)
+        setOutput(JSON.stringify(data, null, 2))
+    } //metodo anterior mostrado abaixo do formulario
     
     return (
         <Stack 
@@ -349,6 +286,7 @@ export function Forms () {
                     variant="contained">Submit</Button>
                 </Box>
             </form>
+            <pre>{output}</pre>
         </Stack>  
     );
 }
