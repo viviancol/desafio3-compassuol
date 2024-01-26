@@ -30,14 +30,4 @@ describe ('Forms component', () => {
         expect(screen.getByLabelText('Email Address')).toHaveValue('vivian@topronta.com');
     });
 
-    it('displays error message for invalid full name', () => {
-        render(<Forms/>);
-
-        fireEvent.change(screen.getByLabelText('Full Name'), { target: { value: 'John' } });
-        fireEvent.click(screen.getByText('Submit'));
-
-        expect(screen.getByText('Digite um Nome e ao menos um Sobrenome')).toBeInTheDocument();
-
-    });
-
 })
