@@ -19,5 +19,19 @@ export const StandardTheme = createTheme({
         paper: '#282828',
       },
     },
+    components: {
+      MuiTextField: {
+        defaultProps: {
+          variant: 'outlined',
+        },
+        styleOverrides: {
+          root: {
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#ffffff',
+            },
+          },
+        },
+      },
+    },  
     // Você pode personalizar outras partes do tema aqui
   });
