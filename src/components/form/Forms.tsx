@@ -14,13 +14,13 @@ const validationFormSchema = z.object({
     .refine(data => {
         const names = data.split(" ");
         return names.length >= 2 && names.every(name => name.length > 0);}, {
-        message: "Digite um Nome e ao menos um Sobrenome",
+        message: 'Digite um Nome e ao menos um Sobrenome',
     }),
 
     emailAddress: z
     .string()
     .email({
-        message: "Digite um endereço de email válido",
+        message: 'Digite um endereço de email válido',
     }),
 
     country: z
@@ -28,10 +28,13 @@ const validationFormSchema = z.object({
     .min(1, 'mensagem do erro'),
 
     city: z
-    .string(),
+    .string()
+    .min(1, 'mensagem de erro'),
     
-    referralCode: z
-    .string(),
+    referralCode: z.string().refine((value) => /^([A-Z]{3}-[0-9]{3})$/.test(value), {
+        message: 'O código de indicação deve seguir o formato AAA-001',
+    }),
+    
 });
 
 
@@ -139,8 +142,11 @@ export function Forms () {
                             style: { color: "#FBA403" },
                             }}
                             {...register('fullName')}
+                            helperText={errors.fullName ? errors.fullName.message : ''}
+                            error={Boolean(errors.fullName)}
+
                         />
-                        {errors.fullName && <span>{errors.fullName.message}</span>}
+                        {/* {errors.fullName && <span>{errors.fullName.message}</span>} */}
                     </>
                     <div>
                         <TextField
@@ -155,9 +161,11 @@ export function Forms () {
                             style: { color: "#FBA403" },
                             }}
                             {...register('emailAddress')}
+                            helperText={errors.emailAddress ? errors.emailAddress.message : ''}
+                            error={Boolean(errors.emailAddress)}
 
                         />
-                        {errors.emailAddress && <span>{errors.emailAddress.message}</span>}
+                        {/* {errors.emailAddress && <span>{errors.emailAddress.message}</span>} */}
                     </div>
                     <>
                         <Controller   
@@ -188,6 +196,7 @@ export function Forms () {
                                 id="city" 
                                 label="City" 
                             />
+                            
                             </div>
                             )} 
                         />
@@ -205,6 +214,8 @@ export function Forms () {
                             style: { color: "#FBA403" },
                             }}
                             {...register('referralCode')}
+                            helperText={errors.referralCode ? errors.referralCode.message : ''}
+                            error={Boolean(errors.referralCode)}
                         />
                     </>
                     <Box sx={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
@@ -283,6 +294,6 @@ export function Forms () {
 
 export default Forms
 
-function setHoveredCar(carType: string) {
-    throw new Error('Function not implemented.')
-}
+// function setHoveredCar(carType: string) {
+//     throw new Error('Function not implemented.')
+// }

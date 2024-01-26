@@ -26,9 +26,9 @@ const Select = ({error,id, options,onChange, label, ...props}:ISelectProps) => {
             }
           }}
           getOptionLabel={(option) => option.label}
-          renderInput={(params) => <TextField {...params} label={label} />}
+          renderInput={(params) => <TextField {...params} label={label} helperText={error} error={Boolean(error)} />}
         />
-        {error && <span>{error}</span>}
+        {/* {error && <span style={{ color: 'red' }}>{error}</span>} */}
       </>
     );
 }
