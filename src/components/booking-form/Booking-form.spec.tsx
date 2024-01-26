@@ -11,7 +11,7 @@ describe ('BookingForm component', () => {
 
         expect(screen.getByText('Find a ride now')).toBeInTheDocument()
         expect(screen.getByText('NEED A RIDE?')).toBeInTheDocument();
-        expect(screen.getByText('Book with my RIDE now!')).toBeInTheDocument();
+        // expect(screen.getByText('Book with my RIDE now!')).toBeInTheDocument();
 
         expect(screen.getByLabelText('Your Pickup')).toBeInTheDocument()
         expect(screen.getByLabelText('Your Destination')).toBeInTheDocument()

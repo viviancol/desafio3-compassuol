@@ -1,5 +1,20 @@
 {
-    "user":[
-        
-    ]
+  "user": [
+    {
+      "fullName": "vivian oliveira",
+      "emailAddress": "vivian@oi.com.br",
+      "country": "Algeria",
+      "city": "Batna City",
+      "referralCode": "AAA-777",
+      "id": 1
+    },
+    {
+      "fullName": "Roney Nascimento",
+      "emailAddress": "roney@nascimento.com",
+      "country": "Algeria",
+      "city": "Bordj Bou Arreridj",
+      "referralCode": "RRR-000",
+      "id": 2
+    }
+  ]
 }

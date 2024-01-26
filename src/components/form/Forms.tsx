@@ -39,12 +39,12 @@ const validationFormSchema = z.object({ //validação do zod
 type ValidationFormsData = z.infer<typeof validationFormSchema>
 
 export function Forms () {
-    const [output, setOutput] = useState('');
+    // const [output, setOutput] = useState('');
 
     const [driveMyOwnCar, setDriveMyOwnCar] = useState(true); // switch true por padrão
     const [hoveredCar, setHoveredCar] = useState(''); // alterar imagem ao passar mouse
 
-    const { register, watch, handleSubmit,  control, formState: {errors} } = useForm<ValidationFormsData>({
+    const { register, watch, handleSubmit, reset,  control, formState: {errors} } = useForm<ValidationFormsData>({
         resolver: zodResolver(validationFormSchema) //validação do zod
     })
 
@@ -89,15 +89,40 @@ export function Forms () {
         handleSearchCity()
     }, [watch().country] )
 
-    function createUser(data: any) {
-        console.log(data)
-        setOutput(JSON.stringify(data, null, 2))
-    } //metodo anterior mostrado abaixo do formulario
+    // function createUser(data: any) {
+    //     console.log(data)
+    //     setOutput(JSON.stringify(data, null, 2))
+    // } //metodo anterior mostrado abaixo do formulario
+
+    const createUser = async (data: any) => {
+        try {
+          const response = await fetch('http://localhost:5000/user', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
     
+          if (!response.ok) {
+            console.log('Erro ao enviar o formulário. Por favor, tente novamente.');
+          } else {
+            console.log('Formulário enviado com sucesso.'); 
+          }
+        } catch (error) {
+          console.error('Error submitting the form:', error);
+          console.log('Erro ao enviar o formulário. Por favor, tente novamente.');
+        }
+    };
+    
+ 
+
     return (
         <Stack 
             sx={{bgcolor:'#242424', display:'flex', flexDirection:'column', padding:'2rem'}}>
-            <form onSubmit={handleSubmit(createUser)} //onsubmit abraçando o form
+            <form onSubmit={handleSubmit((data) => {
+                createUser(data); reset();
+            })} //onsubmit abraçando o form
                 style={{backgroundColor:'#282828', display:'flex', flexDirection:'column', marginRight:'20px', marginLeft:'20px', padding:'2rem'}} >
                 <Box sx={{display:'flex', flexDirection:'row', alignItems:'start', mb:'2rem'}}>
                     <img
@@ -286,7 +311,7 @@ export function Forms () {
                     variant="contained">Submit</Button>
                 </Box>
             </form>
-            <pre>{output}</pre>
+            {/* <pre>{output}</pre> */}
         </Stack>  
     );
 }

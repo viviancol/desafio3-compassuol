@@ -9,7 +9,7 @@ onChange(e: any): void,
 label: string
 }
 
-const Select = ({error,id, options,onChange, label, ...props}:ISelectProps) => {
+const Select = ({error,id, options, onChange, label, ...props}:ISelectProps) => {
     console.log(error)
     return (
       <>

@@ -1,7 +1,10 @@
+import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import Forms from './Forms';
-import React from 'react'
 
+
+jest.mock('@hookform/resolvers/zod');
+jest.mock('./countries-and-cities.json');
 describe ('Forms component', () => {
     it('renders Forms components correctly', () => {
         render(<Forms/>);

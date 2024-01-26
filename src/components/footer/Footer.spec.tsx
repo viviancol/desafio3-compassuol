@@ -6,8 +6,8 @@ describe ('Footer component', () => {
     it('renders Footer components correctly', () => {
         render (<Footer/>);
 
-        expect(screen.getByAltText('Logo do site no rodapé')).toBeInTheDocument()
-        expect(screen.getByAltText('icone facebook')).toBeInTheDocument()
+        expect(screen.getByAltText('Logo do site no rodapé')).toBeInTheDocument();
+        expect(screen.getByAltText('icone facebook')).toBeInTheDocument();
 
         expect(screen.getByText('Company')).toBeInTheDocument();
         expect(screen.getByText('About Us')).toBeInTheDocument();

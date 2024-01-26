@@ -6,8 +6,8 @@ describe ('Navbar component', () => {
     it('renders navbar components correctly', () => {
         render(<Navbar/>);
 
-        expect(screen.getByAltText('Logo do Site')).toBeInTheDocument()
-        expect(screen.getByLabelText('Menu principal')).toBeInTheDocument()
+        expect(screen.getByAltText('Logo do Site')).toBeInTheDocument();
+        expect(screen.getByLabelText('Menu principal')).toBeInTheDocument();
 
         expect(screen.getByText('Home')).toBeInTheDocument();
         expect(screen.getByText('Getting a Taxi')).toBeInTheDocument();

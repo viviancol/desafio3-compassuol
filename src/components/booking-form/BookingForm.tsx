@@ -1,8 +1,22 @@
-import { Box, Stack, TextField, Typography } from "@mui/material"
+import { Box, Stack, TextField, Typography, InputAdornment, IconButton } from "@mui/material"
 import React from "react"
 import YellowButton from "./YellowButton.tsx"
+import CloseIcon from '@mui/icons-material/Close';
+import { useState } from "react"
 
 const BookingForm: React.FC = () => {
+    const [pickup, setPickup] = useState('');
+    const [destination, setDestination] = useState('');
+  
+    const clearPickup = () => {
+      setPickup('');
+    };
+  
+    const clearDestination = () => {
+      setDestination('');
+    };
+  
+
   return (
     <Stack sx= {{marginTop:'64px', bgcolor:'#242424'}} >
         <Box sx={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', my:'74px', mx:'89px'}}>
@@ -23,7 +37,7 @@ const BookingForm: React.FC = () => {
                     <Typography 
                     sx={{
                         fontSize:'40px',
-                    }} >Book with 
+                    }} >Book with
                     <span style={{color:"#FBA403"}} > <i>my</i></span>
                     <span style={{color:"#FBA403"}}>RIDE</span> now!</Typography>
                 </Box>
@@ -45,6 +59,22 @@ const BookingForm: React.FC = () => {
                             label='Your Pickup' 
                             placeholder="Current Location" 
                             variant='outlined' 
+                            value={pickup}
+                            onChange={(e) => setPickup(e.target.value)}
+                            InputProps={{
+                                endAdornment: (
+                                  <InputAdornment position="end">
+                                    <IconButton
+                                      edge="end"
+                                      onClick={clearPickup}
+                                      size="large"
+                                      aria-label="fechar input"
+                                    >
+                                      <CloseIcon />
+                                    </IconButton>
+                                  </InputAdornment>
+                                ),
+                              }}
                             inputProps={{
                                 style:{ color:'#FBA403'}
                             }}
@@ -58,8 +88,24 @@ const BookingForm: React.FC = () => {
                             label='Your Destination' 
                             placeholder="Your Destination" 
                             variant='outlined' 
+                            value={destination}
+                            onChange={(e) => setDestination(e.target.value)}
+                            InputProps={{
+                                endAdornment: (
+                                  <InputAdornment position="end">
+                                    <IconButton
+                                      edge="end"
+                                      onClick={clearDestination}
+                                      size="large"
+                                      aria-label="fechar input"
+                                    >
+                                      <CloseIcon />
+                                    </IconButton>
+                                  </InputAdornment>
+                                ),
+                              }}
                             inputProps={{
-                                style:{ color:'#FBA403' }
+                                style:{ color:'#FBA403'}
                             }}
                             />
                         </Box>
