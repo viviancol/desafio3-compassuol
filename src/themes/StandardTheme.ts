@@ -1,3 +1,4 @@
+import React from 'react'
 import { createTheme } from "@mui/material";
 
 export const StandardTheme = createTheme({
@@ -30,15 +31,11 @@ export const StandardTheme = createTheme({
           '& .MuiOutlinedInput-notchedOutline': {
             borderColor: '#ffffff',
           },
+          '& .MuiInputAdornment-root svg': {
+            color: '#ffffff', // Cor das setas e 'X'que ficam no cantinho
         },
       },
     },
   },
-  MuiSvgIcon: { 
-    styleOverrides: {
-      root: {
-        color: '#ffffff',
-      },
-    },
-  },
+},
 });

@@ -61,27 +61,27 @@ export function Forms () {
     
     const handleCarMouseOver = (carType: string) => { // Atualizar o estado quando o mouse estiver sobre a imagem
         setHoveredCar(carType);
-      };
+    };
     
-      const handleCarMouseLeave = () => { // Resetar o estado quando o mouse deixar a imagem
+    const handleCarMouseLeave = () => { // Resetar o estado quando o mouse deixar a imagem
         setHoveredCar('');
-      };
+    };
  
-     const handleSearchCity =() => { //requisição do select country e city
-         const normalizeJson = Object.entries(countriesAndCities).map(([country, valor]) => ({
+    const handleSearchCity =() => { //requisição do select country e city
+        const normalizeJson = Object.entries(countriesAndCities).map(([country, valor]) => ({
              country,
              ...valor,
-         }));
-         const getCity:any = normalizeJson.find(({ country }) => country === watch().country);
+        }));
+        const getCity:any = normalizeJson.find(({ country }) => country === watch().country);
  
-         const filteredCityValues = Object.values(getCity).filter(
+        const filteredCityValues = Object.values(getCity).filter(
              value => value !== watch().country,
-         );
-         const formatedCity = Object.values(filteredCityValues).map(cities => ({
+        );
+        const formatedCity = Object.values(filteredCityValues).map(cities => ({
              label: cities as string,
              value: cities as string,
-         }));
-         setCitiesOptions(formatedCity);
+        }));
+        setCitiesOptions(formatedCity);
     }  
 
     useEffect(( ) => { //effect errors
@@ -106,13 +106,13 @@ export function Forms () {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-          });
+        });
     
-          if (!response.ok) {
+        if (!response.ok) {
             console.log('Erro ao enviar o formulário. Por favor, tente novamente.');
-          } else {
+        } else {
             console.log('Formulário enviado com sucesso.'); 
-          }
+        }
         } catch (error) {
           console.error('Error submitting the form:', error);
           console.log('Erro ao enviar o formulário. Por favor, tente novamente.');
@@ -300,21 +300,21 @@ export function Forms () {
                                 onMouseOver={() => handleCarMouseOver('suv')}
                                 onMouseLeave={handleCarMouseLeave}
                                 style={{ marginRight: '1rem' }}
-                                src={hoveredCar === 'suv' ? "../public/sedan-amarelo.png" : "../public/suv.png"}
+                                src={hoveredCar === 'suv' ? "../public/suv-amarelo.png" : "../public/suv.png"}
                                 alt="image suv car"
                                 />
                                 <img
                                 onMouseOver={() => handleCarMouseOver('semiluxury')}
                                 onMouseLeave={handleCarMouseLeave}
                                 style={{ marginRight: '1rem' }}
-                                src={hoveredCar === 'semiluxury' ? "../public/sedan-amarelo.png" : "../public/semiluxury.png"}
+                                src={hoveredCar === 'semiluxury' ? "../public/semiluxury-amarelo.png" : "../public/semiluxury.png"}
                                 alt="image semiluxury car"
                                 />
                                 <img
                                 onMouseOver={() => handleCarMouseOver('luxury')}
                                 onMouseLeave={handleCarMouseLeave}
                                 style={{ marginRight: '1rem' }}
-                                src={hoveredCar === 'luxury' ? "../public/sedan-amarelo.png" : "../public/luxury.png"}
+                                src={hoveredCar === 'luxury' ? "../public/luxury-amarelo.png" : "../public/luxury.png"}
                                 alt="image luxury car"
                                 />
                             </>

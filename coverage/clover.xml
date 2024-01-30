@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1706300717862" clover="3.2.0">
-  <project timestamp="1706300717862" name="All files">
+<coverage generated="1706547026099" clover="3.2.0">
+  <project timestamp="1706547026101" name="All files">
     <metrics statements="80" coveredstatements="43" conditionals="40" coveredconditionals="21" methods="39" coveredmethods="15" elements="159" coveredelements="79" complexity="0" loc="80" ncloc="80" packages="4" files="7" classes="7"/>
     <package name="booking-form">
       <metrics statements="12" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4"/>

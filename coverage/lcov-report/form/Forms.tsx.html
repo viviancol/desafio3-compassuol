@@ -798,27 +798,27 @@ export function Forms () {
     
     const handleCarMouseOver = <span class="fstat-no" title="function not covered" >(c</span>arType: string) =&gt; { // Atualizar o estado quando o mouse estiver sobre a imagem
 <span class="cstat-no" title="statement not covered" >        setHoveredCar(carType);</span>
-      };
+    };
     
-      const handleCarMouseLeave = <span class="fstat-no" title="function not covered" >()</span> =&gt; { // Resetar o estado quando o mouse deixar a imagem
+    const handleCarMouseLeave = <span class="fstat-no" title="function not covered" >()</span> =&gt; { // Resetar o estado quando o mouse deixar a imagem
 <span class="cstat-no" title="statement not covered" >        setHoveredCar('');</span>
-      };
+    };
  
-     const handleSearchCity =<span class="fstat-no" title="function not covered" >()</span> =&gt; { //requisição do select country e city
-         const normalizeJson = <span class="cstat-no" title="statement not covered" >Object.entries(countriesAndCities).map(<span class="fstat-no" title="function not covered" >([</span>country, valor]) =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+    const handleSearchCity =<span class="fstat-no" title="function not covered" >()</span> =&gt; { //requisição do select country e city
+        const normalizeJson = <span class="cstat-no" title="statement not covered" >Object.entries(countriesAndCities).map(<span class="fstat-no" title="function not covered" >([</span>country, valor]) =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
              country,
              ...valor,
-         }));
-         const getCity:any = <span class="cstat-no" title="statement not covered" >normalizeJson.find(<span class="fstat-no" title="function not covered" >({</span> country }) =&gt; <span class="cstat-no" title="statement not covered" >country === watch().country)</span>;</span>
+        }));
+        const getCity:any = <span class="cstat-no" title="statement not covered" >normalizeJson.find(<span class="fstat-no" title="function not covered" >({</span> country }) =&gt; <span class="cstat-no" title="statement not covered" >country === watch().country)</span>;</span>
  
-         const filteredCityValues = <span class="cstat-no" title="statement not covered" >Object.values(getCity).filter(</span>
+        const filteredCityValues = <span class="cstat-no" title="statement not covered" >Object.values(getCity).filter(</span>
 <span class="fstat-no" title="function not covered" >             va</span>lue =&gt; <span class="cstat-no" title="statement not covered" >value !== watch().country,</span>
-         );
-         const formatedCity = <span class="cstat-no" title="statement not covered" >Object.values(filteredCityValues).map(<span class="fstat-no" title="function not covered" >ci</span>ties =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+        );
+        const formatedCity = <span class="cstat-no" title="statement not covered" >Object.values(filteredCityValues).map(<span class="fstat-no" title="function not covered" >ci</span>ties =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
              label: cities as string,
              value: cities as string,
-         }));
-<span class="cstat-no" title="statement not covered" >         setCitiesOptions(formatedCity);</span>
+        }));
+<span class="cstat-no" title="statement not covered" >        setCitiesOptions(formatedCity);</span>
     }  
 &nbsp;
     useEffect(( ) =&gt; { //effect errors
@@ -843,13 +843,13 @@ export function Forms () {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-          });
+        });
     
-<span class="cstat-no" title="statement not covered" >          if (!response.ok) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!response.ok) {</span>
 <span class="cstat-no" title="statement not covered" >            console.log('Erro ao enviar o formulário. Por favor, tente novamente.');</span>
-          } else {
+        } else {
 <span class="cstat-no" title="statement not covered" >            console.log('Formulário enviado com sucesso.'); </span>
-          }
+        }
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >          console.error('Error submitting the form:', error);</span>
 <span class="cstat-no" title="statement not covered" >          console.log('Erro ao enviar o formulário. Por favor, tente novamente.');</span>
@@ -1037,21 +1037,21 @@ export function Forms () {
                                 onMouseOver={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >handleCarMouseOver('suv')}</span>
                                 onMouseLeave={handleCarMouseLeave}
                                 style={{ marginRight: '1rem' }}
-                                src={hoveredCar === 'suv' ? <span class="branch-0 cbranch-no" title="branch not covered" >"../public/sedan-amarelo.png" </span>: "../public/suv.png"}
+                                src={hoveredCar === 'suv' ? <span class="branch-0 cbranch-no" title="branch not covered" >"../public/suv-amarelo.png" </span>: "../public/suv.png"}
                                 alt="image suv car"
                                 /&gt;
                                 &lt;img
                                 onMouseOver={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >handleCarMouseOver('semiluxury')}</span>
                                 onMouseLeave={handleCarMouseLeave}
                                 style={{ marginRight: '1rem' }}
-                                src={hoveredCar === 'semiluxury' ? <span class="branch-0 cbranch-no" title="branch not covered" >"../public/sedan-amarelo.png" </span>: "../public/semiluxury.png"}
+                                src={hoveredCar === 'semiluxury' ? <span class="branch-0 cbranch-no" title="branch not covered" >"../public/semiluxury-amarelo.png" </span>: "../public/semiluxury.png"}
                                 alt="image semiluxury car"
                                 /&gt;
                                 &lt;img
                                 onMouseOver={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >handleCarMouseOver('luxury')}</span>
                                 onMouseLeave={handleCarMouseLeave}
                                 style={{ marginRight: '1rem' }}
-                                src={hoveredCar === 'luxury' ? <span class="branch-0 cbranch-no" title="branch not covered" >"../public/sedan-amarelo.png" </span>: "../public/luxury.png"}
+                                src={hoveredCar === 'luxury' ? <span class="branch-0 cbranch-no" title="branch not covered" >"../public/luxury-amarelo.png" </span>: "../public/luxury.png"}
                                 alt="image luxury car"
                                 /&gt;
                             &lt;/&gt;
@@ -1078,7 +1078,7 @@ export default Forms</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-26T20:25:17.688Z
+                at 2024-01-29T16:50:25.584Z
             </div>
         <script src="../prettify.js"></script>
         <script>
